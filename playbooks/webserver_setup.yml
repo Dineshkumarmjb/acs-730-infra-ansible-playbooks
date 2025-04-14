@@ -15,7 +15,18 @@
         state: started
         enabled: true
 
-    - name: Copy a sample index.html
+    - name: Deploy index.html with image from S3
       copy:
         dest: /var/www/html/index.html
-        content: "Welcome to Group1 Dev Webserver {{ inventory_hostname }}"
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Group1 Webserver</title>
+          </head>
+          <body>
+              <h1>Welcome to Group1's Dev Environment</h1>
+              <p>Served from: {{ inventory_hostname }}</p>
+              <img src="https://group1-dev-terraform-state.s3.us-east-1.amazonaws.com/pink-rose.jpg" alt="Team Image" style="width:300px;">
+          </body>
+          </html>
