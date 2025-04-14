@@ -25,7 +25,13 @@
               <title>Group1 Webserver</title>
           </head>
           <body>
-              <h1>Welcome to Group1's Dev Environment</h1>
+              <h1>Group1 Dev Environment</h1>
+              <h2>Team Members:</h2>
+              <ul>
+                <li>Dinesh Kumar</li>
+                <li>Awaes Razvi Shaik</li>
+                <li>Priyanka Mohan</li>
+              </ul>
               <p>Served from: {{ inventory_hostname }}</p>
               <img src="https://group1-dev-terraform-state.s3.us-east-1.amazonaws.com/pink-rose.jpg" alt="Team Image" style="width:300px;">
           </body>
