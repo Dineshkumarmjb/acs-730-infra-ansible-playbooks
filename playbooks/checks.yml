@@ -1,0 +1,24 @@
+---
+- name: Perform connectivity and configuration checks
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: Check if Apache (httpd) is running
+      service:
+        name: httpd
+        state: started
+      register: apache_status
+
+    - name: Show Apache status
+      debug:
+        var: apache_status
+
+    - name: Run system update (patching)
+      yum:
+        name: "*"
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Ping host
+      ping:
